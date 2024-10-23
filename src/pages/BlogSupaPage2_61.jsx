@@ -6,7 +6,7 @@ import { supabase } from '../db/clientSupabase'
 import Blog_61 from '../components/Blog_61'
 //useEffect:當組件被啟動後會useEffect會執行一次
 let api_url = 'http://localhost:5000/api/blog_61'
-const BlogSupaPage_61 = () => {
+const BlogSupaPage2_61 = () => {
   const [name, setName] = useState('周浩偉')
   const [id, setId] = useState(212410061)
   const [blogs, setBlogs] = useState([])
@@ -15,7 +15,7 @@ const BlogSupaPage_61 = () => {
     try {
       let { data, error } = await supabase.from('blog_61').select('*')
       //let response = await fetch(url)
-      // const data = await response.json()
+      //const data = await response.json()
       console.log('supabase blogs', data)
       setBlogs(data)
     } catch (e) {
@@ -39,28 +39,17 @@ const BlogSupaPage_61 = () => {
         {blogs?.map((blog) => {
           const { id, title, category, img, description } = blog
           return (
-            <article className='blog' key={id}>
-              <img src={img} alt='Coffee photo' className='img blog-img' />
-              <div className='blog-content'>
-                <span>
-                  {category}{' '}
-                  {category === 'lifestyle' ? (
-                    <FaMugSaucer />
-                  ) : category === 'travel' ? (
-                    <FaGlobe />
-                  ) : (
-                    ''
-                  )}
-                </span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <a href='#'>read more</a>
-              </div>
-            </article>
+            <Blog_61
+              id={id}
+              title={title}
+              category={category}
+              img={img}
+              description={description}
+            />
           )
         })}
       </div>
     </section>
   )
 }
-export default BlogSupaPage_61
+export default BlogSupaPage2_61
