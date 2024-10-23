@@ -29,7 +29,7 @@ const BlogSupaPage_61 = () => {
   return (
     <section className='blogs'>
       <div className='section-title'>
-        <h2>latest blogs from Node -- </h2>
+        <h2>latest blogs from supabase -- </h2>
         <h2 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
           {name} {id}
         </h2>
